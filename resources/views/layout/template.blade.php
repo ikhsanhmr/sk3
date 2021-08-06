@@ -16,10 +16,11 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-           @yield('content')
+           @yield('content-header')
           </div>
 
           <div class="section-body">
+           @yield('content-body')
           </div>
         </section>
       </div>
