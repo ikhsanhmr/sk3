@@ -9,20 +9,20 @@
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
       <li>
-        <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
       </li>
       <li class="menu-header">Starter</li>
       <li>
-        <a href="#" class="nav-link"><i class="fas fa-columns"></i> <span>Jadwal</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-clipboard-list"></i> <span>Jadwal</span></a>
       </li>
       <li>
-        <a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Evident</span></a>
+        <a class="nav-link" href="blank.html"><i class="far fa-lightbulb"></i> <span>Evident</span></a>
       </li>
       <li>
         <a href="#" class="nav-link"><i class="fas fa-columns"></i> <span>Unit</span></a>
       </li>
       <li>
-        <a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>User</span></a>
+        <a class="nav-link" href="blank.html"><i class="far fa-user"></i> <span>User</span></a>
       </li>
     </ul>
   </aside>
