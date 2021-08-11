@@ -19,8 +19,21 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('nip',50);
+            $table->integer('role_id');
+            $table->integer('kodeUnit_kantor_induk')->nullable();
+            $table->integer('kodeUnit_unit_level2')->nullable();
+            $table->integer('kodeUnit_unit_level3')->nullable();
+            $table->integer('id_kantor_induk')->nullable();
+            $table->integer('id_unit_level2')->nullable();
+            $table->integer('id_unit_level3')->nullable();
+            $table->string('title',50)->nullable();
+            $table->string('department',50)->nullable();
+            $table->integer('phone_number')->nullable();
+            $table->longText('thumbnail_photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
