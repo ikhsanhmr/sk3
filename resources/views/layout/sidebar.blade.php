@@ -13,7 +13,7 @@
       </li>
       <li class="menu-header">Starter</li>
       <li>
-        <a href="#" class="nav-link"><i class="fas fa-clipboard-list"></i> <span>Jadwal</span></a>
+        <a href="{{route('jadwal')}}" class="nav-link"><i class="fas fa-clipboard-list"></i> <span>Jadwal</span></a>
       </li>
       <li>
         <a class="nav-link" href="blank.html"><i class="far fa-lightbulb"></i> <span>Evident</span></a>
