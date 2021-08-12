@@ -1,10 +1,10 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="index.html">Stisla</a>
+      <a href="index.html">SK3</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <a href="index.html">St</a>
+      <a href="index.html">SK3</a>
     </div>
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
@@ -19,10 +19,10 @@
         <a class="nav-link" href="blank.html"><i class="far fa-lightbulb"></i> <span>Evident</span></a>
       </li>
       <li>
-        <a href="#" class="nav-link"><i class="fas fa-columns"></i> <span>Unit</span></a>
+        <a href="{{route('unit')}}" class="nav-link"><i class="fas fa-columns"></i> <span>Unit</span></a>
       </li>
       <li>
-        <a class="nav-link" href="blank.html"><i class="far fa-user"></i> <span>User</span></a>
+        <a class="nav-link" href="{{route('user')}}"><i class="far fa-user"></i> <span>User</span></a>
       </li>
     </ul>
   </aside>

@@ -1,6 +1,15 @@
-@extends('layout.tamplate')
-@section('title', 'List Unit | AIL')
-@section('content')
+@extends('layout.template')
+
+@section('title')
+SK3 | Add Kantor Induk
+@endsection
+
+
+@section('content-header')
+<b>Add Kantor Induk</b>
+@endsection
+
+@section('content-body')
 @if(session('errors'))
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
   Something it's wrong:
@@ -15,9 +24,9 @@
 </div>
 @endif
 <!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
+{{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Tambah Kantor Induk</h1>
-</div>
+</div> --}}
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-body">

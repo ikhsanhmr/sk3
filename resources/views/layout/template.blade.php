@@ -31,6 +31,7 @@
   @include('layout.footer')
 
   @include('layout.js')
+  @yield('script')
 
 
   <!-- Page Specific JS File -->

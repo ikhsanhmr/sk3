@@ -1,6 +1,14 @@
-@extends('layout.tamplate')
-@section('title', 'List Unit | AIL')
-@section('content')
+@extends('layout.template')
+
+@section('title')
+SK3 | Add Unit
+@endsection
+
+
+@section('content-header')
+@endsection
+
+@section('content-body')
 @if(session('errors'))
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
   Something it's wrong:
