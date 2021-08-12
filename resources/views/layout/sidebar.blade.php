@@ -9,14 +9,14 @@
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
       <li>
-        <a href="#" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
       </li>
       <li class="menu-header">Starter</li>
       <li>
-        <a href="#" class="nav-link"><i class="fas fa-clipboard-list"></i> <span>Jadwal</span></a>
+        <a href="{{ route('jadwal') }}" class="nav-link"><i class="fas fa-calendar-alt"></i> <span>Jadwal</span></a>
       </li>
       <li>
-        <a class="nav-link" href="blank.html"><i class="far fa-lightbulb"></i> <span>Evident</span></a>
+        <a href="{{ route('evinden') }}" class="nav-link"><i class="fas fa-book"></i> <span>Eviden</span></a>
       </li>
       <li>
         <a href="{{route('unit')}}" class="nav-link"><i class="fas fa-columns"></i> <span>Unit</span></a>
