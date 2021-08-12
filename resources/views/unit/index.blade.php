@@ -6,7 +6,7 @@ SK3 | Unit
 
 
 @section('content-header')
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="pills-unit_level3-tab" data-toggle="pill" href="#pills-unit_level3" role="tab" aria-controls="pills-unit_level3" aria-selected="true">Unit level 3</a>
     </li>
