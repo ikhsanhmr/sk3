@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('layout.header')
-<meta name="csrf-token" content="{{ csrf_token() }}">
 @section('title')
 SK3 | Register
 @endsection
@@ -77,7 +76,7 @@ SK3 | Register
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Register Account
                     </button>
-                  </form>
+                </form>
               </div>
             </div>
             <div class="simple-footer">

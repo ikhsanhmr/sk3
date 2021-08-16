@@ -9,7 +9,7 @@ class Eviden extends Model
 {
     use HasFactory;
     protected $table = 'eviden';
-    protected $fillable = ['id_jadwal','image','vide','pdf'];
+    protected $fillable = ['id_jadwal','image/video','pdf'];
 
     public function Jadwal(){
         return $this->belongsTo(Jadwal::class,'id_jadwal','id');

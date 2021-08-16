@@ -1,12 +1,12 @@
 @extends('layout.template')
 
 @section('title')
-SK3 | Jadwal
+SK3 | Eviden
 @endsection
 
 
 @section('content-header')
-<h5>Jadwal</h5>
+<h5>Eviden</h5>
 @endsection
 
 @section('content-body')
@@ -41,7 +41,7 @@ SK3 | Jadwal
     @endif
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFormJadwal')}}">Tambah Jadwal</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFormEviden')}}">Tambah Eviden</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -49,26 +49,37 @@ SK3 | Jadwal
           <thead>
             <tr>
               <th>No.</th>
-              <th>Lokasi</th>
-              <th>Koordinat</th>
-              <th>Deskripsi</th>
+              <th>Jadwal</th>
+              <th>Url</th>
+              <th>Pdf</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($jadwal as $key => $value)
+            @foreach($eviden as  $key => $value)
             <tr>
                 <td>{{$key + 1}}</td>
-                <td>{{$value->lokasi}}</td>
-                <td>{{$value->koordinat}}</td>
-                <td>{{$value->deskripsi}}</td>
+                <td>{{$value->Jadwal->deskripsi}}</td>
+                <td>
+                    @if($value->url == NULL)
+                    <i class="fas fa-exclamation text-danger"></i>
+                    @else
+                    <i class="fas fa-check text-success"></i>
+                    @endif
+                </td>
+                <td>
+                    @if($value->pdf == NULL)
+                    <i class="fas fa-exclamation text-danger"></i>
+                    @else
+                    <i class="fas fa-check text-success"></i>
+                    @endif
+                </td>
               <td>
-                  <a href="{{route('editJadwal',$value->id)}}" class="btn btn-warning btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-pen"></i></a>
-                  <a href="{{route('deleteJadwal',$value->id)}}" class="btn btn-danger btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-trash"></i></a>
+                  <a href="{{route('editEviden',$value->id)}}" class="btn btn-warning btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-pen"></i></a>
+                  <a href="{{route('deleteEviden',$value->id)}}" class="btn btn-danger btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
             @endforeach
-
           </tbody>
         </table>
       </div>
@@ -81,3 +92,4 @@ SK3 | Jadwal
     $('#dataTable').dataTable()
 </script>
 @endsection
+
