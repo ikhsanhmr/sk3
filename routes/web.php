@@ -37,20 +37,21 @@ Route::get('/admin/jadwal/edit/{id}',[JadwalController::class,'edit'])->name('ed
 Route::put('/admin/jadwal/update/{id}',[JadwalController::class,'update'])->name('updateJadwal');
 Route::get('/admin/jadwal/delete/{id}',[JadwalController::class,'destroy'])->name('deleteJadwal');
 
-//route eviden
-Route::get('/admin/eviden', [EvidenController::class,'index'])->name('eviden');
-Route::get('/admin/eviden/add/formEviden',[EvidenController::class,'showFormEviden'])->name('showFormEviden');
-Route::post('/admin/eviden/add',[EvidenController::class,'add'])->name('addEviden');
-Route::get('/admin/eviden/edit/{id}',[EvidenController::class,'edit'])->name('editEviden');
-Route::put('/admin/eviden/update/{id}',[EvidenController::class,'update'])->name('updateEviden');
-Route::get('/admin/eviden/delete/{id}',[EvidenController::class,'destroy'])->name('deleteEviden');
-
-
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth','CheckRole:1,2'],function(){
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/unit', [UnitController::class, 'index']);
+    //route eviden
+    Route::get('/admin/eviden', [EvidenController::class,'index'])->name('eviden');
+    Route::get('/admin/eviden/add/formEviden',[EvidenController::class,'showFormEviden'])->name('showFormEviden');
+    Route::post('/admin/eviden/add',[EvidenController::class,'add'])->name('addEviden');
+    Route::get('/admin/eviden/edit/{id}',[EvidenController::class,'edit'])->name('editEviden');
+    Route::put('/admin/eviden/update/{id}',[EvidenController::class,'update'])->name('updateEviden');
+    Route::get('/admin/eviden/delete/{id}',[EvidenController::class,'destroy'])->name('deleteEviden');
+});
 
+
+Route::group(['middleware' => ['auth','CheckRole:1']], function () {
     // Router User
     Route::get('/admin/user', [UserController::class, 'index'])->name('user');
     Route::post('/admin/user', [UserController::class, 'add'])->name('addUser');

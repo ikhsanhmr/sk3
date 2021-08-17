@@ -18,12 +18,14 @@
       <li>
         <a href="{{ route('eviden') }}" class="nav-link"><i class="fas fa-book"></i> <span>Eviden</span></a>
       </li>
+      @if(Auth::user()->role_id == 1)
       <li>
         <a href="{{route('unit')}}" class="nav-link"><i class="fas fa-columns"></i> <span>Unit</span></a>
       </li>
       <li>
         <a class="nav-link" href="{{route('user')}}"><i class="far fa-user"></i> <span>User</span></a>
       </li>
+      @endif
     </ul>
   </aside>
 </div>

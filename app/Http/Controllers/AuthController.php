@@ -89,11 +89,15 @@ class AuthController extends Controller
 
             $unit_level2 = UnitLevel2::where('kantor_induk_id',$id_kantor_induk)->get();
 
+            $option = "<option value='' disabled selected >- - - P i l i h - - -</option>";
+
+            echo $option;
+
             foreach($unit_level2 as $UnitLevel2){
 
-                $option = "<option value='$UnitLevel2->id'>$UnitLevel2->nama_unit_level2</option>";
+                $option1 = "<option value='$UnitLevel2->id'>$UnitLevel2->nama_unit_level2</option>";
 
-                echo $option;
+                echo $option1;
 
             }
 
