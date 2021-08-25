@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvidenController;
+use App\Http\Controllers\MasterDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,5 +80,9 @@ Route::group(['middleware' => ['auth','CheckRole:1']], function () {
     Route::get('/admin/unit/edit/unitlevel2/{id}', [UnitController::class, 'showFromEditUnitLevel2']);
     Route::put('/admin/unit/edit/unitlevel2', [UnitController::class, 'editUnitLevel2'])->name('editUnitLevel2');
     Route::get('/admin/unit/edit/{id}', [UnitController::class, 'showFormEdit']);
+
+    //Route master data
+    Route::get('/admin/masterdata',[MasterDataController::class,'index'])->name('masterData');
+    Route::get('/admin/masterdata/add/gedung',[MasterDataController::class,'showFormAddGedung'])->name('addGedung');
 
 });

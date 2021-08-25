@@ -10,5 +10,10 @@
 @endsection
 
 @section('content-body')
-    <h3>Test</h3>
+<div class="card shadow mb-4">
+        <div class="card-body p-5">
+            <center> <h3>SELAMAT DATANG DI APP SK3</h3></center>
+        </div>
+    </div>
+  </div>
 @endsection
