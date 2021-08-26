@@ -30,13 +30,14 @@ SK3 | Add Gedung
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-body">
-    <form>
+    <form action="{{route('addGedung')}}" method="POST">
+        @csrf
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
                 <label for="">Kantor Induk</label>
                 <select type="text" class="form-control" name='kantor_induk' id="kantor_induk">
-                    <option value="" disabled selected>--- Pilih ---</option>
+                    <option value="" disabled selected>Kantor induk</option>
                     @foreach ($kantor_induk as $induk)
                         <option value="{{$induk->id}}">{{$induk->nama_kantor_induk}}</option>
                     @endforeach
@@ -46,7 +47,7 @@ SK3 | Add Gedung
               <div class="form-group">
                 <label for="">Unit Level 2</label>
                 <select type="text" class="form-control" name='unit_level2' id="unit_level2">
-                    <option value="" disabled selected>--- Pilih ---</option>
+                    <option value="" disabled selected>Unit level 2</option>
                     <option value=""></option>
                   </select>
               </div>
@@ -54,7 +55,7 @@ SK3 | Add Gedung
               <div class="form-group">
                 <label for="">Unit Level 3</label>
                 <select type="text" class="form-control" name='unit_level3' id="unit_level3">
-                    <option value="" disabled selected>--- Pilih ---</option>
+                    <option value="" disabled selected>Unit level 3</option>
                     <option value=""></option>
                   </select>
               </div>
@@ -66,19 +67,68 @@ SK3 | Add Gedung
           <div class="col-md-6">
             <div class="form-group">
                 <label for="">Nama Gedung</label>
-                <input type="text" class="form-control" name="kantor_induk" id="kantor_induk" placeholder="Nama Gedung">
+                <input type="text" class="form-control" name="nama_gedung" id="nama_gedung" placeholder="Nama Gedung">
               </div>
               <div class="form-group">
                 <label for="">Company Code</label>
-                <input type="text" class="form-control" name="unit_level2" id="unit_level2" placeholder="Company code">
+                <input type="text" class="form-control" name="company_code" id="company_code" placeholder="Company code">
               </div>
               <div class="form-group">
                 <label for="">Busines Area</label>
-                <input type="text" class="form-control" name="unit_level3" id="unit_level3" placeholder="Busines Area">
+                <input type="text" class="form-control" name="busines_area" id="busines_area" placeholder="Busines Area">
               </div>
           </div>
         </div>
       </form>
   </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+
+    $(function () {
+    $.ajaxSetup({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+    });
+
+
+    $(function () {
+
+        $('#kantor_induk').on('change', function () {
+            let kantor_induk = $('#kantor_induk').val();
+            $.ajax({
+          		type: 'POST',
+              	url: "{{route('get_unitlevel2')}}",
+              	data: {kantor_induk: kantor_induk},
+              	cache: false,
+              	success: function(msg){
+                  $("#unit_level2").html(msg);
+                  $("#unit_level3").html("");
+                },
+                error: function (data ) {
+                        console.log('Error:', data);
+                },
+            });
+
+        });
+
+        $('#unit_level2').on('change', function () {
+            let unit_level2 = $('#unit_level2').val();
+            $.ajax({
+          		type: 'POST',
+              	url: "{{route('get_unitlevel3')}}",
+              	data: {unit_level2: unit_level2},
+              	cache: false,
+              	success: function(msg){
+                  $("#unit_level3").html(msg);
+                },
+                error: function (data ) {
+                        console.log('Error:', data);
+                },
+            });
+        });
+    });
+});
+</script>
 @endsection

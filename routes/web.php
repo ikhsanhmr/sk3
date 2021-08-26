@@ -83,6 +83,10 @@ Route::group(['middleware' => ['auth','CheckRole:1']], function () {
 
     //Route master data
     Route::get('/admin/masterdata',[MasterDataController::class,'index'])->name('masterData');
-    Route::get('/admin/masterdata/add/gedung',[MasterDataController::class,'showFormAddGedung'])->name('addGedung');
+    Route::get('/admin/masterdata/add/gedung',[MasterDataController::class,'showFormAddGedung'])->name('showFromAddGedung');
+    Route::post('/admin/masterdata/add/gedung',[MasterDataController::class,'addGedung'])->name('addGedung');
+    Route::get('/admin/masterdata/edit/gedung/{id}',[MasterDataController::class,'editGedung'])->name('editGedung');
+    Route::get('/admin/masterdata/delete/gedung/{id}',[MasterDataController::class,'deleteGedung'])->name('deleteGedung');
+
 
 });

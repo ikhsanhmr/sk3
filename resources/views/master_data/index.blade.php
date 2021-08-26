@@ -56,7 +56,7 @@ SK3 | Unit
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         {{-- <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add') }}">Tambah Unit</a> --}}
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('addGedung')}}">Tambah Gedung</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFromAddGedung')}}">Tambah Gedung</a>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -73,6 +73,20 @@ SK3 | Unit
               </tr>
             </thead>
             <tbody>
+                @foreach ($gedung as $key => $value )
+                    <tr>
+                        <td>{{$key+1}}</td>
+                        <td>{{$value->KantorInduk->nama_kantor_induk}}</td>
+                        <td>{{$value->UnitLevel2->nama_unit_level2}}</td>
+                        <td>{{$value->UnitLevel3->nama_unit_level3}}</td>
+                        <td>{{$value->nama_gedung}}</td>
+                        <td>{{date('d-m-y',strtotime($value->created_at))}}</td>
+                        <td>
+                            <a href="{{route('editGedung',$value->id)}}" class="btn btn-warning btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-pen"></i></a>
+                            <a href="{{route('deleteGedung',$value->id)}}" class="btn btn-danger btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                @endforeach
 
             </tbody>
           </table>
@@ -88,7 +102,7 @@ SK3 | Unit
       <div class="card-body">
         {{-- TABEL UNIT LEVEL 2 --}}
         <div class="table-responsive">
-          <table class="table table-bordered" id="dataTableUnitLevel2" width="100%" cellspacing="0">
+          <table class="table table-bordered" id="dataTableLantai" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th>No.</th>
@@ -110,7 +124,12 @@ SK3 | Unit
     </div>
   </div>
 </div>
+@endsection
 
-
+@section('script')
+    <script>
+        $('#dataTable').dataTable();
+        $('#dataTableLantai').dataTable();
+    </script>
 @endsection
 
