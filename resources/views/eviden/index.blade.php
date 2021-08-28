@@ -41,9 +41,9 @@ SK3 | Eviden
     @endif
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFormEviden')}}">Tambah Eviden</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFormEviden')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Eviden</a>
     </div>
-    <div class="card-body">
+    <div class="card-body pt-0">
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>

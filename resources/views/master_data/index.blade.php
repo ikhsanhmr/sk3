@@ -56,9 +56,9 @@ SK3 | Unit
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         {{-- <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add') }}">Tambah Unit</a> --}}
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFromAddGedung')}}">Tambah Gedung</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFromAddGedung')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Gedung</a>
       </div>
-      <div class="card-body">
+      <div class="card-body pt-0">
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -80,7 +80,7 @@ SK3 | Unit
                         <td>{{$value->UnitLevel2->nama_unit_level2}}</td>
                         <td>{{$value->UnitLevel3->nama_unit_level3}}</td>
                         <td>{{$value->nama_gedung}}</td>
-                        <td>{{date('d-m-y',strtotime($value->created_at))}}</td>
+                        <td>{{date('d-m-Y',strtotime($value->created_at))}}</td>
                         <td>
                             <a href="{{route('editGedung',$value->id)}}" class="btn btn-warning btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-pen"></i></a>
                             <a href="{{route('deleteGedung',$value->id)}}" class="btn btn-danger btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-trash"></i></a>
@@ -97,9 +97,9 @@ SK3 | Unit
   <div class="tab-pane fade" id="pills_master_lantai" role="tabpanel" aria-labelledby="pills_master_lantai-tab">
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="">Tambah Lantai</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFormAddLantai')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Lantai</a>
       </div>
-      <div class="card-body">
+      <div class="card-body pt-0">
         {{-- TABEL UNIT LEVEL 2 --}}
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTableLantai" width="100%" cellspacing="0">
@@ -116,7 +116,21 @@ SK3 | Unit
               </tr>
             </thead>
             <tbody>
-
+                @foreach($lantai as $key => $value)
+                <tr>
+                    <td>{{$key + 1}}</td>
+                    <td>{{$value->KantorInduk->nama_kantor_induk}}</td>
+                    <td>{{$value->UnitLevel2->nama_unit_level2}}</td>
+                    <td>{{$value->UnitLevel3->nama_unit_level3}}</td>
+                    <td>{{$value->nama_lantai}}</td>
+                    <td>{{$value->MasterGedung->nama_gedung}}</td>
+                    <td>{{date('d-m-Y',strtotime($value->created_at))}}</td>
+                    <td>
+                        <a href="{{route('editLantai',$value->id)}}" class="btn btn-warning btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-pen"></i></a>
+                        <a href="{{route('deleteLantai',$value->id)}}" class="btn btn-danger btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                @endforeach
             </tbody>
           </table>
         </div>

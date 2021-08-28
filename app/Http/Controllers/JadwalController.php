@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KantorInduk;
 use App\Models\Jadwal;
+use App\Models\Eviden;
 use App\Models\UnitLevel2;
 use App\Models\UnitLevel3;
 use Illuminate\Support\Facades\Session;
@@ -68,10 +69,10 @@ class JadwalController extends Controller
             ]);
 
             if($jadwal){
-                Session::flash('success', 'Data berhasil di update!');
+                Session::flash('success', 'Data berhasil di tambah!');
                 return redirect()->route('jadwal');
             }else{
-                Session::flash('success', 'Data gagal di update!');
+                Session::flash('success', 'Data gagal di tambah!');
                 return redirect()->route('jadwal');
             }
 
@@ -151,6 +152,8 @@ class JadwalController extends Controller
     public function destroy($id){
 
         $jadwal = Jadwal::find($id);
+        $eviden = Eviden::where('id_jadwal',$id)->first();
+        $eviden->delete();
         $jadwal->delete();
 
         if ($jadwal) {

@@ -59,9 +59,9 @@ SK3 | Unit
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         {{-- <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add') }}">Tambah Unit</a> --}}
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add/unitlevel3') }}">Tambah Unit Level 3</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add/unitlevel3') }}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Unit Level 3</a>
       </div>
-      <div class="card-body">
+      <div class="card-body pt-0">
         <small>Info : Data yang tampil ditabel adalah data yang merujuk pada unit level 3 saja</small>
         {{-- TABEL UNIT LEVEL 3 --}}
         <div class="table-responsive">
@@ -101,9 +101,9 @@ SK3 | Unit
   <div class="tab-pane fade" id="pills-unit_level2" role="tabpanel" aria-labelledby="pills-unit_level2-tab">
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add/unitlevel2') }}">Tambah Unit Level 2</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add/unitlevel2') }}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Unit Level 2</a>
       </div>
-      <div class="card-body">
+      <div class="card-body pt-0">
         {{-- TABEL UNIT LEVEL 2 --}}
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTableUnitLevel2" width="100%" cellspacing="0">
@@ -140,9 +140,9 @@ SK3 | Unit
   <div class="tab-pane fade" id="pills-kantor-induk" role="tabpanel" aria-labelledby="pills-kantor-induk-tab">
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add/kantorinduk') }}">Tambah Unit Kantor Induk</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{ url('/admin/unit/add/kantorinduk') }}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Unit Kantor Induk</a>
       </div>
-      <div class="card-body">
+      <div class="card-body pt-0">
         {{-- TABEL KANTOR INDUK --}}
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTableKantorInduk" width="100%" cellspacing="0">

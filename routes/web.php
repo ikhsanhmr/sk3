@@ -22,7 +22,7 @@ use App\Http\Controllers\MasterDataController;
 */
 
 // Router Auth
-Route::get('/', [AuthController::class, 'showFormLogin'])->name('login');
+Route::get('/', [AuthController::class, 'showFormLogin']);
 Route::get('/login', [AuthController::class, 'showFormLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showFormRegister'])->name('register');
@@ -88,5 +88,10 @@ Route::group(['middleware' => ['auth','CheckRole:1']], function () {
     Route::get('/admin/masterdata/edit/gedung/{id}',[MasterDataController::class,'editGedung'])->name('editGedung');
     Route::get('/admin/masterdata/delete/gedung/{id}',[MasterDataController::class,'deleteGedung'])->name('deleteGedung');
     Route::put('/admin/masterdata/update/gedung/{id}',[MasterDataController::class,'updateGedung'])->name('updateGedung');
+    Route::get('/admin/masterdata/add/lantai',[MasterDataController::class,'showFormAddLantai'])->name('showFormAddLantai');
+    Route::post('/admin/masterdata/add/lantai',[MasterDataController::class,'addLantai'])->name('addLantai');
+    Route::get('/admin/masterdata/edit/lantai/{id}',[MasterDataController::class,'editLantai'])->name('editLantai');
+    Route::get('/admin/masterdata/delete/lantai/{id}',[MasterDataController::class,'deleteLantai'])->name('deleteLantai');
+    Route::put('/admin/masterdata/update/lantai/{id}',[MasterDataController::class,'updateLantai'])->name('updateLantai');
 
 });

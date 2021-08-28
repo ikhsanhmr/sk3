@@ -1,12 +1,12 @@
 @extends('layout.template')
 
 @section('title')
-SK3 | Edit Gedung
+SK3 | Edit Lantai
 @endsection
 
 
 @section('content-header')
-<b>Edit Gedung</b>
+<b>Edit Lantai</b>
 @endsection
 
 @section('content-body')
@@ -30,7 +30,7 @@ SK3 | Edit Gedung
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-body">
-    <form action="{{route('updateGedung',$gedung->id)}}" method="POST">
+    <form action="{{route('updateGedung',$lantai->id)}}" method="POST">
         @csrf
         @method('PUT')
         <div class="row">
@@ -40,7 +40,7 @@ SK3 | Edit Gedung
                 <select type="text" class="form-control" name='kantor_induk' id="kantor_induk">
                     <option value="" disabled selected>Kantor induk</option>
                     @foreach ($kantor_induk as $kantor)
-                    <option value="{{$kantor->id}}"  @if($kantor->id == $gedung->id_kantor_induk) selected = "selected" @endif>{{$kantor->nama_kantor_induk}}</option>
+                    <option value="{{$kantor->id}}"  @if($kantor->id == $lantai->id_kantor_induk) selected = "selected" @endif>{{$kantor->nama_kantor_induk}}</option>
                     @endforeach
                   </select>
               </div>
@@ -49,7 +49,7 @@ SK3 | Edit Gedung
                 <label for="">Unit Level 2</label>
                 <select type="text" class="form-control" name='unit_level2' id="unit_level2">
                     @foreach($unit_level2 as $level2)
-                    <option value="{{$level2->id}}" @if($level2->id == $gedung->id_unit_level2) selected='selected' @endif>{{$level2->nama_unit_level2}}</option>
+                    <option value="{{$level2->id}}" @if($level2->id == $lantai->id_unit_level2) selected='selected' @endif>{{$level2->nama_unit_level2}}</option>
                     @endforeach
                   </select>
               </div>
@@ -58,7 +58,7 @@ SK3 | Edit Gedung
                 <label for="">Unit Level 3</label>
                 <select type="text" class="form-control" name='unit_level3' id="unit_level3">
                     @foreach($unit_level3 as $level3)
-                    <option value="{{$level3->id}}" @if($level3->id == $gedung->id_unit_level3) selected='selected' @endif>{{$level3->nama_unit_level3}}</option>
+                    <option value="{{$level3->id}}" @if($level3->id == $lantai->id_unit_level3) selected='selected' @endif>{{$level3->nama_unit_level3}}</option>
                     @endforeach
                   </select>
               </div>
@@ -69,16 +69,16 @@ SK3 | Edit Gedung
           </div>
           <div class="col-md-6">
             <div class="form-group">
-                <label for="">Nama Gedung</label>
-                <input type="text" class="form-control" value="{{$gedung->nama_gedung}}" name="nama_gedung" id="nama_gedung" placeholder="Nama Gedung">
+                <label for="">Nama Lantai</label>
+                <input type="text" class="form-control" value="{{$lantai->nama_lantai}}" name="nama_lantai" id="nama_lantai" placeholder="Nama Lantai">
               </div>
               <div class="form-group">
-                <label for="">Company Code</label>
-                <input type="text" class="form-control" value="{{$gedung->company_code}}" name="company_code" id="company_code" placeholder="Company code">
-              </div>
-              <div class="form-group">
-                <label for="">Busines Area</label>
-                <input type="text" class="form-control" value="{{$gedung->busines_area}}" name="busines_area" id="busines_area" placeholder="Busines Area">
+                <label for="">Pilih Gedung</label>
+                <select type="text" class="form-control" name="gedung" id="gedung">
+                    @foreach ($gedung as $value)
+                    <option value="{{$value->id}}"  @if($value->id == $lantai->id_gedung) selected = "selected" @endif>{{$value->nama_gedung}}</option>
+                    @endforeach
+                  </select>
               </div>
           </div>
         </div>

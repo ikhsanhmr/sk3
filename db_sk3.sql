@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2021 at 01:21 AM
+-- Generation Time: Aug 28, 2021 at 11:09 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_sk3`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `apar`
+--
+
+CREATE TABLE `apar` (
+  `id` int(11) NOT NULL,
+  `id_gedung` int(50) NOT NULL,
+  `id_lantai` int(50) NOT NULL,
+  `lokasi_apar` longtext NOT NULL,
+  `nomor_urut` varchar(50) NOT NULL,
+  `foto_apar` varchar(50) NOT NULL,
+  `merek_apar` varchar(50) NOT NULL,
+  `type_apar` varchar(50) NOT NULL,
+  `kapasitas` varchar(20) NOT NULL,
+  `media` varchar(20) NOT NULL,
+  `tanggal_expired` date NOT NULL,
+  `jadwal_refill` date NOT NULL,
+  `jadwal_triwulanan` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,8 +68,7 @@ CREATE TABLE `eviden` (
 --
 
 INSERT INTO `eviden` (`id`, `id_jadwal`, `url`, `pdf`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(15, 6, 'myGTMF55whXkuKYHNBW7.mp4', 'FEU8Rehiujqf4feG3w1G.pdf', '2021-08-16 15:15:05', '2021-08-16 15:15:05', NULL),
-(16, 5, NULL, 'egL9k5K9nTlYq11nsoAz.pdf', '2021-08-16 23:20:47', '2021-08-16 15:20:47', NULL);
+(18, 8, 'e3UA9hAPr30ow6QTb1oi.jpg', NULL, '2021-08-28 00:29:46', '2021-08-28 00:29:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -70,8 +94,7 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id`, `id_kantor_induk`, `id_unit_level2`, `id_unit_level3`, `lokasi`, `koordinat`, `deskripsi`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(5, 1, 103, 10303, 'makassar', 'test2', 'test2', '2021-08-16 21:53:36', '2021-08-16 13:53:36', NULL),
-(6, 1, 105, 10504, 'bulukumba', 'test1', 'test1', '2021-08-16 21:53:24', '2021-08-16 13:53:24', NULL);
+(8, 1, 101, 11204, 'makassar', 'test', 'test', '2021-08-28 00:29:03', '2021-08-28 00:29:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -95,6 +118,50 @@ CREATE TABLE `kantor_induk` (
 
 INSERT INTO `kantor_induk` (`id`, `nama_kantor_induk`, `wilayah_kerja`, `created_at`, `updated_at`, `deleted_at`, `kode_unit`) VALUES
 (1, 'UIW Sumatera Utara', 1, '2021-06-29 06:03:51', '2021-06-28 21:06:55', NULL, '12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_gedung`
+--
+
+CREATE TABLE `master_gedung` (
+  `id` int(11) NOT NULL,
+  `nama_gedung` varchar(120) NOT NULL,
+  `id_kantor_induk` int(20) NOT NULL,
+  `id_unit_level2` int(20) NOT NULL,
+  `id_unit_level3` int(20) NOT NULL,
+  `company_code` varchar(20) NOT NULL,
+  `busines_area` varchar(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `master_gedung`
+--
+
+INSERT INTO `master_gedung` (`id`, `nama_gedung`, `id_kantor_induk`, `id_unit_level2`, `id_unit_level3`, `company_code`, `busines_area`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(8, 'Gedung Masyarakat', 1, 103, 10301, '007', '007', '2021-08-28 00:44:17', '2021-08-28 00:44:17', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_lantai`
+--
+
+CREATE TABLE `master_lantai` (
+  `id` int(11) NOT NULL,
+  `nama_lantai` varchar(20) NOT NULL,
+  `id_kantor_induk` int(20) NOT NULL,
+  `id_unit_level2` int(20) NOT NULL,
+  `id_unit_level3` int(20) NOT NULL,
+  `id_gedung` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -527,12 +594,18 @@ INSERT INTO `users` (`id`, `nip`, `password`, `email`, `name`, `role_id`, `KodeU
 (95172606, '9012491ZY', '$2y$10$76DGQCi05dRaTGTELPB/.eN5yUKi0Cqwau4UmU3Ww7yXK3gc.ZD7G', 'DOVIN.ALFRINTO@PLN.CO.ID', 'DOVIN ALFRINTO SIMBOLON,A.MD', 2, 12, 12123, 12312, 1, 110, 11004, '0', NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '2021-07-19 14:09:10', NULL),
 (95172607, '91112459Z', '$2y$10$76DGQCi05dRaTGTELPB/.eN5yUKi0Cqwau4UmU3Ww7yXK3gc.ZD7G', 'RICKY.JOHANNES@PLN.CO.ID', 'RICKY JOHANNES SARAGIH, A.MD', 2, 12, 12123, 12314, 1, 110, 11006, '0', NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '2021-07-19 14:09:51', NULL),
 (95172637, 'admin', '$2y$10$XnwmXYRrHz8XB48.22U9Seql5akDN4nyo5CtDZ7b/n0QV3o1mGBY6', 'admin@admin.com', 'Admin', 1, 12, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, '2021-07-17 13:56:58', '2021-07-18 13:03:45', NULL),
-(95172638, '34343', '$2y$10$gzTvkJI1yNByMtlroqsH7e0G8zzA/rPvf/vTATfJf25msIUYbs3T.', 'andito763@gmail.com', 'Andito', 2, 12, 12120, 12001, 1, 103, 10301, '0', NULL, NULL, NULL, NULL, NULL, '2021-07-17 14:40:22', '2021-07-17 14:40:22', NULL),
+(95172638, '34343', '$2y$10$gzTvkJI1yNByMtlroqsH7e0G8zzA/rPvf/vTATfJf25msIUYbs3T.', 'andito763@gmail.com', 'Andito', 2, 12, 12120, 12001, 1, 103, 10301, '1', NULL, NULL, NULL, NULL, NULL, '2021-07-17 14:40:22', '2021-08-17 15:08:32', NULL),
 (95172639, '232424', '$2y$10$I8HrLsbxHJd/hIus8CnoFeUybUCZyzRDMmilo7khcSQww71sjJrGi', 'fatur@gmail.com', 'Fatur', 2, 12, 12124, NULL, 1, 111, NULL, '0', NULL, NULL, NULL, NULL, NULL, '2021-07-21 02:51:55', '2021-08-11 18:00:32', NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `apar`
+--
+ALTER TABLE `apar`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `eviden`
@@ -550,6 +623,18 @@ ALTER TABLE `jadwal`
 -- Indexes for table `kantor_induk`
 --
 ALTER TABLE `kantor_induk`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_gedung`
+--
+ALTER TABLE `master_gedung`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_lantai`
+--
+ALTER TABLE `master_lantai`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -587,16 +672,40 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `apar`
+--
+ALTER TABLE `apar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `eviden`
 --
 ALTER TABLE `eviden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `kantor_induk`
+--
+ALTER TABLE `kantor_induk`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `master_gedung`
+--
+ALTER TABLE `master_gedung`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `master_lantai`
+--
+ALTER TABLE `master_lantai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`

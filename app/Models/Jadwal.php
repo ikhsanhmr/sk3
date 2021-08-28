@@ -12,7 +12,4 @@ class Jadwal extends Model
 
     protected $fillable = ['id_kantor_induk','id_unit_level2','id_unit_level3','lokasi','koordinat','deskripsi'];
 
-    public function Eviden(){
-        return $this->hasMany(Eviden::class);
-    }
 }

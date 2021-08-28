@@ -17,4 +17,20 @@ class MasterLantai extends Model
                             'nama_lantai',
                             'id_gedung'
                         ];
+
+                        public function KantorInduk(){
+                            return $this->belongsTo(KantorInduk::class,'id_kantor_induk','id');
+                        }
+
+                        public function UnitLevel2(){
+                            return $this->belongsTo(UnitLevel2::class,'id_unit_level2','id');
+                        }
+
+                        public function UnitLevel3(){
+                            return $this->belongsTo(UnitLevel3::class,'id_unit_level3','id');
+                        }
+
+                        public function MasterGedung(){
+                            return $this->belongsTo(MasterGedung::class,'id_gedung','id');
+                        }
 }
