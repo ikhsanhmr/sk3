@@ -28,7 +28,7 @@
       <li class="nav-item dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Peta Apar</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="index-0.html">List Apar</a></li>
+          <li><a class="nav-link" href="{{route('apar')}}">List Apar</a></li>
           <li><a class="nav-link" href="{{route('masterData')}}">Master Data</a></li>
         </ul>
       </li>

@@ -9,6 +9,7 @@ use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvidenController;
 use App\Http\Controllers\MasterDataController;
+use App\Http\Controllers\AparController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,5 +94,8 @@ Route::group(['middleware' => ['auth','CheckRole:1']], function () {
     Route::get('/admin/masterdata/edit/lantai/{id}',[MasterDataController::class,'editLantai'])->name('editLantai');
     Route::get('/admin/masterdata/delete/lantai/{id}',[MasterDataController::class,'deleteLantai'])->name('deleteLantai');
     Route::put('/admin/masterdata/update/lantai/{id}',[MasterDataController::class,'updateLantai'])->name('updateLantai');
+
+    //Route apar
+    Route::get('/admin/apar',[AparController::class,'index'])->name('apar');
 
 });
