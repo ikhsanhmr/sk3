@@ -41,7 +41,7 @@ SK3 | Apar
     @endif
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href=""><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Apar</a>
+        <a class="m-0 btn btn-primary btn-sm font-weight-bold" href="{{route('showFormAddApar')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Apar</a>
     </div>
     <div class="card-body pt-0">
       <div class="table-responsive">
