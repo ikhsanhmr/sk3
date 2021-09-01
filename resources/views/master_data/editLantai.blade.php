@@ -62,10 +62,6 @@ SK3 | Edit Lantai
                     @endforeach
                   </select>
               </div>
-              <a href="{{ route('masterData') }}" class="btn btn-warning btn-sm text-dark">Kembali</a>
-              <button class="btn btn-primary btn-sm" type="submit">
-                Simpan
-              </button>
           </div>
           <div class="col-md-6">
             <div class="form-group">
@@ -80,6 +76,12 @@ SK3 | Edit Lantai
                     @endforeach
                   </select>
               </div>
+          </div>
+          <div class="col-md-12">
+            <a href="{{ route('masterData') }}" class="btn btn-warning btn-sm text-dark">Kembali</a>
+            <button class="btn btn-primary btn-sm" type="submit">
+              Simpan
+            </button>
           </div>
         </div>
       </form>

@@ -8,6 +8,8 @@ use App\Models\MasterLantai;
 use App\Models\KantorInduk;
 use App\Models\UnitLevel2;
 use App\Models\UnitLevel3;
+use App\Models\Apar;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
@@ -139,9 +141,21 @@ class MasterDataController extends Controller
             }
     }
 
+    private function deleteFile($document){
+        if($document){
+            File::delete(public_path('foto_apar/'. $document));
+        }
+    }
+
+
     public function deleteGedung($id){
+        $apar = Apar::where('id_gedung',$id)->get();
         $lantai = MasterLantai::where('id_gedung',$id);
         $gedung = MasterGedung::find($id);
+        foreach($apar as $value){
+            $this->deleteFile($value->foto_apar);
+            $value->delete();
+        }
         $lantai->delete();
         $gedung->delete();
 
@@ -216,8 +230,13 @@ class MasterDataController extends Controller
     }
 
     public function deleteLantai($id){
-
+        $apar = Apar::where('id_lantai',$id)->get();
         $lantai = MasterLantai::find($id);
+
+        foreach($apar as $value){
+            $this->deleteFile($value->foto_apar);
+            $value->delete();
+        }
         $lantai->delete();
         if ($lantai) {
             Session::flash('warning', 'Menghapus data berhasil!');

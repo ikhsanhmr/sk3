@@ -59,10 +59,6 @@ SK3 | Add Gedung
                     <option value=""></option>
                   </select>
               </div>
-              <a href="{{ route('masterData') }}" class="btn btn-warning btn-sm text-dark">Kembali</a>
-              <button class="btn btn-primary btn-sm" type="submit">
-                Simpan
-              </button>
           </div>
           <div class="col-md-6">
             <div class="form-group">
@@ -77,6 +73,12 @@ SK3 | Add Gedung
                 <label for="">Busines Area</label>
                 <input type="text" class="form-control" name="busines_area" id="busines_area" placeholder="Busines Area">
               </div>
+          </div>
+          <div class="col-md-12">
+            <a href="{{ route('masterData') }}" class="btn btn-warning btn-sm text-dark">Kembali</a>
+            <button class="btn btn-primary btn-sm" type="submit">
+              Simpan
+            </button>
           </div>
         </div>
       </form>

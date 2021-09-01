@@ -1,12 +1,12 @@
 @extends('layout.template')
 
 @section('title')
-SK3 | Add Gedung
+SK3 | Add Apar
 @endsection
 
 
 @section('content-header')
-<b>Add Gedung</b>
+<b>Add Apar</b>
 @endsection
 
 @section('content-body')
@@ -56,17 +56,13 @@ SK3 | Add Gedung
               </div>
               <div class="form-group">
                 <label for="">Nomor Urut</label>
-                <input type="text" class="form-control" name="nomor_urut" id="nomor_urut" placeholder="Nomor Urut">
+                <input type="number" class="form-control" name="nomor_urut" id="nomor_urut" placeholder="Nomor Urut">
               </div>
               <div class="form-group">
                 <label for="">Foto Apar</label>
                 <input type="file" class="form-control" name="foto_apar" id="foto_apar" placeholder="Foto Apar">
               </div>
 
-              <a href="{{ route('apar') }}" class="btn btn-warning btn-sm text-dark">Kembali</a>
-              <button class="btn btn-primary btn-sm" type="submit">
-                Simpan
-              </button>
           </div>
           <div class="col-md-6">
             <div class="form-group">
@@ -82,7 +78,7 @@ SK3 | Add Gedung
                   <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Kapasitas (KG)</label>
-                        <input type="text" class="form-control" name="kapasitas" id="kapasitas" placeholder="kapasitas">
+                        <input type="number" class="form-control" name="kapasitas" id="kapasitas" placeholder="kapasitas">
                       </div>
                   </div>
                   <div class="col-md-6">
@@ -117,6 +113,12 @@ SK3 | Add Gedung
                   </div>
               </div>
           </div>
+          <div class="col-md-12">
+            <a href="{{ route('apar') }}" class="btn btn-warning btn-sm text-dark">Kembali</a>
+              <button class="btn btn-primary btn-sm" type="submit">
+                Simpan
+              </button>
+        </div>
         </div>
       </form>
   </div>

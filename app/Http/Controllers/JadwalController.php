@@ -8,6 +8,7 @@ use App\Models\Eviden;
 use App\Models\UnitLevel2;
 use App\Models\UnitLevel3;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -149,10 +150,18 @@ class JadwalController extends Controller
         }
     }
 
+    private function deleteFile($document){
+        if($document){
+            File::delete(public_path('eviden/'. $document));
+        }
+    }
+
     public function destroy($id){
 
         $jadwal = Jadwal::find($id);
         $eviden = Eviden::where('id_jadwal',$id)->first();
+        $this->deleteFile($eviden->url);
+        $this->deleteFile($eviden->pdf);
         $eviden->delete();
         $jadwal->delete();
 
