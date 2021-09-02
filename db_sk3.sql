@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2021 at 11:09 AM
+-- Generation Time: Sep 02, 2021 at 05:33 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -47,6 +47,13 @@ CREATE TABLE `apar` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `apar`
+--
+
+INSERT INTO `apar` (`id`, `id_gedung`, `id_lantai`, `lokasi_apar`, `nomor_urut`, `foto_apar`, `merek_apar`, `type_apar`, `kapasitas`, `media`, `tanggal_expired`, `jadwal_refill`, `jadwal_triwulanan`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(7, 8, 15, 'Makassar', '43', 'oRxcBEeXv6uHqMEFr2OD.jpg', 'cek', 'cek', '12', 'ABC', '2021-09-01', '2021-09-01', '2021-09-01', '2021-09-02 03:31:04', '2021-09-01 19:31:04', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -68,7 +75,7 @@ CREATE TABLE `eviden` (
 --
 
 INSERT INTO `eviden` (`id`, `id_jadwal`, `url`, `pdf`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(18, 8, 'e3UA9hAPr30ow6QTb1oi.jpg', NULL, '2021-08-28 00:29:46', '2021-08-28 00:29:46', NULL);
+(19, 9, 'fK6aKCTetgmJ1G1Sb8fU.png', NULL, '2021-09-02 02:06:20', '2021-09-01 18:06:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -94,7 +101,7 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id`, `id_kantor_induk`, `id_unit_level2`, `id_unit_level3`, `lokasi`, `koordinat`, `deskripsi`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(8, 1, 101, 11204, 'makassar', 'test', 'test', '2021-08-28 00:29:03', '2021-08-28 00:29:03', NULL);
+(9, 1, 103, 10301, 'makassar', 'test', 'test', '2021-08-31 18:39:13', '2021-08-31 18:39:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -143,7 +150,8 @@ CREATE TABLE `master_gedung` (
 --
 
 INSERT INTO `master_gedung` (`id`, `nama_gedung`, `id_kantor_induk`, `id_unit_level2`, `id_unit_level3`, `company_code`, `busines_area`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(8, 'Gedung Masyarakat', 1, 103, 10301, '007', '007', '2021-08-28 00:44:17', '2021-08-28 00:44:17', NULL);
+(8, 'Gedung Masyarakat', 1, 103, 10301, '007', '007', '2021-08-28 00:44:17', '2021-08-28 00:44:17', NULL),
+(9, 'Gedung balaikota', 1, 103, 10303, '007', '007', '2021-08-31 16:32:01', '2021-08-31 16:32:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -162,6 +170,14 @@ CREATE TABLE `master_lantai` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `master_lantai`
+--
+
+INSERT INTO `master_lantai` (`id`, `nama_lantai`, `id_kantor_induk`, `id_unit_level2`, `id_unit_level3`, `id_gedung`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(15, 'Lantai 3', 1, 103, 10301, 8, '2021-08-31 18:54:43', '2021-08-31 18:54:43', NULL),
+(16, 'Lantai 2', 1, 103, 10301, 8, '2021-09-01 17:37:25', '2021-09-01 17:37:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -675,19 +691,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `apar`
 --
 ALTER TABLE `apar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `eviden`
 --
 ALTER TABLE `eviden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kantor_induk`
@@ -699,13 +715,13 @@ ALTER TABLE `kantor_induk`
 -- AUTO_INCREMENT for table `master_gedung`
 --
 ALTER TABLE `master_gedung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `master_lantai`
 --
 ALTER TABLE `master_lantai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `migrations`
