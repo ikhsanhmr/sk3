@@ -65,8 +65,8 @@ SK3 | Apar
                 <td>{{$value->merek_apar}}</td>
                 <td>{{$value->tanggal_expired}}</td>
               <td>
-                  <a href="" class="btn btn-warning btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-pen"></i></a>
-                  <a href="" class="btn btn-danger btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-trash"></i></a>
+                  <a href="{{route('editApar',$value->id)}}" class="btn btn-warning btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-pen"></i></a>
+                  <a href="{{route('deleteApar',$value->id)}}" class="btn btn-danger btn-sm btn-circle mr-2 btn-modal-edit"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
             @endforeach

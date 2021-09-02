@@ -100,5 +100,8 @@ Route::group(['middleware' => ['auth','CheckRole:1']], function () {
     Route::get('/admin/apar/showFormAddApar',[AparController::class,'showFormAddApar'])->name('showFormAddApar');
     Route::post('/admin/apar/addApar',[AparController::class,'addApar'])->name('addApar');
     Route::post('/admin/apar/get_lantai',[AparController::class,'get_lantai'])->name('get_lantai');
+    Route::get('/admin/apar/editApar/{id}',[AparController::class,'editApar'])->name('editApar');
+    Route::put('/admin/apar/updateApar/{id}',[AparController::class,'updateApar'])->name('updateApar');
+    Route::get('/admin/apar/deleteApar/{id}',[AparController::class,'deleteApar'])->name('deleteApar');
 
 });
